@@ -1,3 +1,9 @@
 {
-  "photos": []
+  "photos": [
+    {
+      "title": "TestPhoto",
+      "path": "assets/images/uploads/1781033708578-testphoto.jpg",
+      "uploadedAt": "2026-06-09T19:35:09.706Z"
+    }
+  ]
 }
