@@ -34,3 +34,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+async function loadDynamicGallery() {
+  const section = document.getElementById('latestUploads');
+  const grid = document.getElementById('dynamicGallery');
+  if (!section || !grid) return;
+
+  try {
+    const response = await fetch(`gallery.json?v=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) return;
+    const data = await response.json();
+    const photos = Array.isArray(data.photos) ? data.photos : [];
+    if (!photos.length) return;
+
+    const fragment = document.createDocumentFragment();
+    photos.forEach((photo, index) => {
+      if (!photo || !photo.path) return;
+      const link = document.createElement('a');
+      link.className = 'photo-thumb uploaded-photo';
+      link.href = photo.path;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.setAttribute('aria-label', `Open larger photo: ${photo.title || 'Recent project'}`);
+
+      const image = document.createElement('img');
+      image.src = photo.path;
+      image.alt = photo.title || `Jeff Folds home improvement project ${index + 1}`;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      link.appendChild(image);
+
+      if (photo.title) {
+        const caption = document.createElement('span');
+        caption.className = 'photo-caption';
+        caption.textContent = photo.title;
+        link.appendChild(caption);
+      }
+      fragment.appendChild(link);
+    });
+
+    grid.appendChild(fragment);
+    section.hidden = false;
+  } catch (error) {
+    console.warn('The latest project gallery could not be loaded.', error);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadDynamicGallery);
