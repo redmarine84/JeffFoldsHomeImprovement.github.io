@@ -22,3 +22,51 @@
 .form-status.error { color: #a12222; }
 .admin-site-link { padding: .65rem .9rem; }
 @media (max-width: 560px) { .admin-title-row { align-items: flex-start; flex-direction: column; } .admin-nav .brand-copy small { display:none; } }
+
+.library-section { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid #e6e2dc; }
+.library-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.library-toolbar h2 { margin: 0; font-family: Montserrat, sans-serif; }
+.photo-library { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+.library-card { border: 1px solid #ddd8d1; border-radius: 12px; overflow: hidden; background: #faf9f7; display: grid; }
+.library-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: #e9e6e0; }
+.library-card-body { padding: .7rem; display: grid; gap: .6rem; }
+.library-card-title { font-size: .82rem; font-weight: 700; overflow-wrap: anywhere; }
+.delete-photo-button { border: 0; border-radius: 7px; padding: .65rem .75rem; font: inherit; font-weight: 700; cursor: pointer; color: #fff; background: #a12222; }
+.delete-photo-button:hover { background: #7f1818; }
+.delete-photo-button:disabled { opacity: .55; cursor: wait; }
+.library-empty { grid-column: 1 / -1; padding: 1rem; background: #f4f1eb; border-radius: 8px; }
+
+/* Wider photo-management area only. The login and upload forms keep their original width. */
+.library-section {
+  width: min(1180px, calc(100vw - 2rem));
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 1.8rem;
+  background: #fff;
+  border: 1px solid #e6e2dc;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, .07);
+}
+
+.photo-library {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 1050px) {
+  .photo-library { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (max-width: 820px) {
+  .library-section { padding: 1.25rem; }
+  .photo-library { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 580px) {
+  .library-toolbar { align-items: flex-start; flex-direction: column; }
+  .photo-library { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+}
+
+@media (max-width: 380px) {
+  .photo-library { grid-template-columns: 1fr; }
+}
