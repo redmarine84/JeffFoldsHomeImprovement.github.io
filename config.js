@@ -7,5 +7,5 @@
   The first submission to a new address triggers a verification email.
 */
 window.SITE_CONFIG = {
-  businessEmail: "CHANGE-ME@example.com"
+  businessEmail: "FoldsJeff@gmail.com"
 };
