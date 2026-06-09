@@ -11,3 +11,19 @@
 @media(max-width:560px){.container{width:min(100% - 28px,1160px)}.section{padding:72px 0}.hero-content{padding:80px 0}.hero-actions{flex-direction:column}.button{width:100%}.trust-row{gap:18px}.service-grid,.gallery,.field-row,.footer-grid{grid-template-columns:1fr}.gallery-item.gallery-wide{grid-column:auto}.gallery{grid-auto-rows:240px}.estimate-form{padding:24px}.brand-copy strong{font-size:14px}.brand-copy small{font-size:10px}}
 
 .photo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.photo-thumb{display:block;aspect-ratio:1;overflow:hidden;background:#dbe2e4;border-radius:3px;box-shadow:0 5px 15px rgba(17,38,50,.08)}.photo-thumb img{height:100%;object-fit:cover;transition:transform .25s,filter .25s}.photo-thumb:hover img{transform:scale(1.06);filter:brightness(.9)}@media(max-width:900px){.photo-grid{grid-template-columns:repeat(4,1fr)}}@media(max-width:560px){.photo-grid{grid-template-columns:repeat(3,1fr);gap:8px}}
+
+
+/* Dynamically published project photos */
+.latest-uploads { margin-bottom: 3rem; }
+.compact-heading { margin-bottom: 1.25rem; }
+.dynamic-gallery { margin-top: 1rem; }
+.uploaded-photo { position: relative; overflow: hidden; }
+.photo-caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 1rem .85rem .7rem;
+  color: #fff;
+  font-weight: 700;
+  font-size: .88rem;
+  background: linear-gradient(transparent, rgba(0,0,0,.78));
+}
