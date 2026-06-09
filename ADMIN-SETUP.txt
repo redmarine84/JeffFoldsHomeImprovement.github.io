@@ -1,0 +1,31 @@
+JEFF FOLDS' HOME IMPROVEMENT — OWNER PHOTO UPLOAD SETUP
+
+The website now contains an Owner Login page at:
+https://redmarine84.github.io/JeffFoldsHomeImprovement.github.io/admin.html
+
+HOW IT WORKS
+1. The owner signs in with a GitHub fine-grained personal access token.
+2. The browser validates that the token can write to:
+   redmarine84/JeffFoldsHomeImprovement.github.io
+3. Selected photos are resized in the browser and uploaded to:
+   assets/images/uploads/
+4. gallery.json is updated automatically.
+5. Every upload creates a GitHub commit. GitHub Pages then republishes the site.
+
+CREATE THE TOKEN
+GitHub > Settings > Developer settings > Personal access tokens > Fine-grained tokens
+- Repository access: Only select repositories
+- Select: JeffFoldsHomeImprovement.github.io
+- Repository permissions > Contents: Read and write
+- Use a reasonable expiration date and renew it when needed.
+
+SECURITY
+- No GitHub token or password is included in the website source code.
+- The token is stored only in sessionStorage for the current browser tab.
+- Closing the tab or clicking Sign Out removes it.
+- Anyone can see admin.html because GitHub Pages is static, but only a valid repository token can upload.
+- Never put a token in config.js, admin.js, HTML, GitHub issues, email, or screenshots.
+
+FIRST DEPLOYMENT
+Upload every file in this package to the repository root and commit the changes.
+The current repository's default branch is detected automatically after login.

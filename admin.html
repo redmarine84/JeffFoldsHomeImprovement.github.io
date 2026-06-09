@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Owner Photo Manager | Jeff Folds' Home Improvement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+  <script defer src="admin.js"></script>
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <div class="container admin-nav">
+      <a class="brand" href="index.html"><span class="brand-mark">JF</span><span class="brand-copy"><strong>Jeff Folds'</strong><small>Home Improvement</small></span></a>
+      <a class="button button-secondary admin-site-link" href="index.html">View Website</a>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <section class="admin-card" id="loginPanel">
+      <p class="eyebrow dark">Website Owner</p>
+      <h1>Admin Login</h1>
+      <p>Sign in with a GitHub fine-grained access token that has access only to the website repository. The token is kept only in this browser tab and is never added to the website files.</p>
+      <form id="loginForm" class="admin-form">
+        <label>GitHub Access Token
+          <input id="tokenInput" type="password" autocomplete="off" placeholder="github_pat_..." required>
+        </label>
+        <button class="button button-primary full" type="submit">Sign In</button>
+        <p class="form-status" id="loginStatus" role="status"></p>
+      </form>
+      <details class="token-help">
+        <summary>How to create the correct token</summary>
+        <ol>
+          <li>Open GitHub Settings → Developer settings → Personal access tokens → Fine-grained tokens.</li>
+          <li>Grant access only to <strong>JeffFoldsHomeImprovement.github.io</strong>.</li>
+          <li>Set Repository permissions → Contents to <strong>Read and write</strong>.</li>
+          <li>Copy the token and paste it above. Do not email or share the token.</li>
+        </ol>
+      </details>
+    </section>
+
+    <section class="admin-card" id="uploadPanel" hidden>
+      <div class="admin-title-row">
+        <div><p class="eyebrow dark">Photo Manager</p><h1>Publish New Project Photos</h1></div>
+        <button class="button button-secondary" id="logoutButton" type="button">Sign Out</button>
+      </div>
+      <p id="accountSummary" class="account-summary"></p>
+      <form id="uploadForm" class="admin-form">
+        <label>Project Title
+          <input id="titleInput" type="text" maxlength="100" placeholder="Example: Custom tile shower">
+        </label>
+        <label>Choose Photos
+          <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" multiple required>
+        </label>
+        <p class="small-note">Photos are resized for the web before upload. Each selected photo will be committed to GitHub and will appear automatically in “Latest Projects.”</p>
+        <div id="previewGrid" class="preview-grid"></div>
+        <button class="button button-primary full" id="publishButton" type="submit">Publish Photos</button>
+        <div class="upload-progress" id="progressWrap" hidden><div id="progressBar"></div></div>
+        <p class="form-status" id="uploadStatus" role="status"></p>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
