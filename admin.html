@@ -62,6 +62,19 @@
         <div class="upload-progress" id="progressWrap" hidden><div id="progressBar"></div></div>
         <p class="form-status" id="uploadStatus" role="status"></p>
       </form>
+
+      <section class="library-section" aria-labelledby="libraryHeading">
+        <div class="library-toolbar">
+          <div>
+            <p class="eyebrow dark">Website Gallery</p>
+            <h2 id="libraryHeading">Manage Existing Photos</h2>
+          </div>
+          <button class="button button-secondary" id="refreshLibraryButton" type="button">Refresh</button>
+        </div>
+        <p class="small-note">Delete removes the image from the GitHub repository and from the public website gallery. This action cannot be undone unless the file is restored from Git history.</p>
+        <p class="form-status" id="libraryStatus" role="status"></p>
+        <div class="photo-library" id="photoLibrary"></div>
+      </section>
     </section>
   </main>
 </body>
