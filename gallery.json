@@ -1,11 +1,6 @@
 {
   "photos": [
     {
-      "title": "Random",
-      "path": "assets/images/uploads/1781976666199-random.jpg",
-      "uploadedAt": "2026-06-20T17:31:07.331Z"
-    },
-    {
       "title": "TestPhoto",
       "path": "assets/images/uploads/1781033708578-testphoto.jpg",
       "uploadedAt": "2026-06-09T19:35:09.706Z"
